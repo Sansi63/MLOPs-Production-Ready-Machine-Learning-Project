@@ -40,3 +40,9 @@ class DataTransformationConfig:
                                               DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR,
                                               PREPROCSSING_OBJECT_FILE_NAME)
     
+@dataclass
+class ModelTrainerConfig:
+    model_trainer_dir=os.path.join(training_pipeline_config.artifact_dir,MODEL_TRAINER_DIR_NAME)
+    trained_model_file_path=os.path.join(model_trainer_dir,MODEL_TRAINER_TRAINED_MODEL_DIR,MODEL_TRAINER_TRAINED_MODEL_NAME)
+    expected_accuracy=MODEL_TRAINER_EXPECTED_SCORE
+    model_config_file_path=MODEL_TRAINER_MODEL_CONFIG_FILE_PATH

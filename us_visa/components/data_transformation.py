@@ -116,8 +116,8 @@ class DataTransformation:
 
                 logging.info("Applying SMOTEENN on Training dataset")
                 smt=SMOTEENN(sampling_strategy='minority')
-                input_feature_test_final, target_feature_test_final = smt.fit_resample(
-                    input_feature_test_arr, target_feature_test_df
+                input_feature_train_final, target_feature_train_final = smt.fit_resample(
+                    input_feature_train_arr, target_feature_train_df
                 )
                 logging.info("Applied SMOTEENN on training dataset")
 
@@ -129,7 +129,7 @@ class DataTransformation:
                 logging.info("Applied SMOTEENN to the test dataset")
                 logging.info("Created train array and test array")
                 
-                train_arr=np.c_[input_feature_train_arr,np.array(target_feature_train_df)]
+                train_arr=np.c_[input_feature_train_final,np.array(target_feature_train_final)]
                 test_arr=np.c_[input_feature_test_final, np.array(target_feature_test_final)]
                 
                 save_object(self.data_transformation_config.transformed_object_file_path,preprocessor)
